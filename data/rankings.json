@@ -1,0 +1,5 @@
+[
+    {"institution": "MIT", "area": "AI", "publications": 120},
+    {"institution": "Stanford", "area": "AI", "publications": 110},
+    {"institution": "CMU", "area": "AI", "publications": 100}
+]
