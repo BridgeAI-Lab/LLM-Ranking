@@ -152,8 +152,16 @@
     <noscript><img height="1" width="1" style="display:none"
 		   src="https://www.facebook.com/tr?id=1437880419634625&ev=PageView&noscript=1"
 		   /></noscript>
-    <!-- End Facebook Pixel Code -->
-
+	<script src="js/jquery-3.3.1.min.js" type="text/javascript"></script>
+    <script src="js/he-1.2.0.js" type="text/javascript"></script>
+    <script defer src="js/vega-5.20.2.min.js" type="text/javascript"></script>
+    <script defer src="js/vega-lite-5.1.1.min.js" type="text/javascript"></script>
+    <script defer src="js/vega-embed-6.18.2.min.js" type="text/javascript"></script>
+    <script defer src="js/papaparse.min.js" type="text/javascript"></script>
+    <script defer src="continents.js" type="text/javascript"></script>
+    <script defer src="js/bootstrap.min.js" type="text/javascript"></script>
+    <script defer src="js/navigo.min.js"></script>
+    <script src="csrankings.js" type="text/javascript" defer></script>
   </head>
 
   <body>
@@ -166,373 +174,282 @@
 	  <div class="panel panel-info">
 	    <div class="panel-heading">
 	      <p>
-		LLM Rank description
+			Welcome to LLMRankings, a platform designed to evaluate and rank Large Language Models (LLMs) based on a comprehensive set of reasoning, narrative understanding, social-awareness, ethical fairness, adherence to instructions, and multilingual capabilities. Our rankings are derived from real-world test cases that measure LLMs' ability to perform complex tasks such as deductive reasoning, factual content generation, bias mitigation, and empathetic thinking. By providing transparent and data-driven insights, LLMRankings helps researchers, developers, and enthusiasts identify the best-performing AI models for various applications. <b>Click on a triangle</b> (<font color="blue">&#9658;</font>) to expand
+			capabilities.
 		  </p>
-	      <div class="row">
-		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
-		  Rank 
-		  <label for="regions">LLMs for</label>
-		  <select id="biases" name="biases">   
-		    <optgroup label="by biases">
-		      <option value="an">Anchoring Bias</option>
-              <option value="av">Availability Bias</option>
-              <option value="cf">Confirmation Bias</option>
-		      <option value="fr">Framing Bias</option>
-		      <option value="pr">Prospect Bias</option>
-		      <option value="re">Representativeness Bias</option>
-              <option value="fee">Fundamental Attribution Error</option>
-
-		      <option value="all" selected="selected">All</option>
-		    </optgroup>		
-		  </select>
-		<label for="temp">with temperature </label>
-		<!--	      by average count
-				of publications from -->
-		<select id="temp" name="temp">
-		  <option value="25">0.25</option>  
-		  <option value="50">0.50</option>  
-		  <option value="75">0.75</option>  
-		  <option selected="selected" value="100">1</option>
-		</select>
-		<label for="teler">and TeLeR</label>
-		<select id="teler" name="teler">
-		  <option value="1">Level 1</option>  
-		  <option value="2">Level 2</option>  
-		  <option value="3">Level 3</option>  
-		  <option value="4">Level 4</option>   
-		  <option selected="selected" value="5">Level 5</option>
-		</select>
-		</div>
-	      </div>
+		  <div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+			  Select Model Temperature for ranking 
+			  <label for="temp">temp</label>
+			  <select id="temp" name="temp">
+				<optgroup label="temparature">
+				  <option value="0.25">0.25</option>
+						  <option value="0.50">0.50</option>
+				  <option value="0.75" selected="selected">0.75</option>
+				</optgroup>
+			</select>
+			</div>
+			  </div>
 	    </div>
 	  </div>
 
 	  <div class="row switch-xs row-centered">
 
-	    <!-- start area selection -->
-	    
 	    <div class="col-centered col-xs-6 col-sm-push-6 col-sm-6 col-md-6 col-lg-6 text-center">
-	      <div class="table-responsive">
-		<table class="table-fit table table-sm table-striped">
-		  
-		  <thead>
-		    <tr>
-		      <th colspan="2">
-			<p style="font-size: 125%">All models
-			  &nbsp;<span style="font-size: 80%;">[<a class="area_group_selector" id="all_areas_off"><font color="blue"><b>off</b></font></a> | <a class="area_group_selector" id="all_areas_on"><font color="blue"><b>on</b></font></a>]</span>
-			</p>
-		      </th>
-		    </tr>
-		  </thead>
-		  <thead>
-		    <tr>
-		      <th colspan="2">
-			<p class="ai-area">Open Source models
-			  [<a class="area_group_selector" id="ai_areas_off">off</a> | <a class="area_group_selector" id="ai_areas_on">on</a>]
-			</p>
-		      </th>
-		    </tr>
-		  </thead>
-		  
-		  <tbody class="ai-area">
-		    
-		    <tr>
-		      <td>
-			<span class="hovertip" id="ai-widget">&#9658;</span>
-			<label for="ai">
-			  Llama
-			</label>
-			<div class="table-responsive" style="display:none;" id="ai-conferences">
-			  <table class="table-sm" style="width:100%">
-			    <tbody>
-			      <tr style="width:100%">
-				<td style="width:100%">
-				  <p class="text-muted" style="font-variant:small-caps;">
-				    <a href="http://sigai.acm.org/index.html">acm sigai</a>, <a href="https://aaai.org/">aaai</a>
-				  </p>
-				  <table class="table-sm" style="width:100%;">
-				    <tr>
-				      <td>
-					<label for="aaai">
-					  <a href="https://csconferences.org/#AAAI">AAAI</a>
-					</label>
-				      </td>
-				      <td align="right">
-					<input type="checkbox" name="aaai" id="aaai" value="1.0"/>
-				      </td>
-				    </tr>
-				    <tr>
-				      <td>
-					<label for="ijcai">
-					  <a href="https://csconferences.org/#IJCAI">IJCAI</a>
-					</label>
-				      </td>
-				      <td align="right">
-					<input type="checkbox" name="ijcai" id="ijcai" value="1.0"/>
-				      </td>
-				    </tr>
-				  </table>
+			<div class="table-responsive">
+		  <table class="table-fit table table-sm table-striped">
+			
+			<thead>
+			  <tr>
+				<th colspan="2">
+			  <p style="font-size: 125%">All Capabilities
+				&nbsp;<span style="font-size: 80%;">[<a class="area_group_selector" id="all_areas_off"><font color="blue"><b>off</b></font></a> | <a class="area_group_selector" id="all_areas_on"><font color="blue"><b>on</b></font></a>]</span>
+			  </p>
+				</th>
+			  </tr>
+			</thead>
+			<thead>
+			  <tr>
+				<th colspan="2">
+			  <p class="ai-area">Ethical/Fair Response Generation
+				[<a class="area_group_selector" id="ai_areas_off">off</a> | <a class="area_group_selector" id="ai_areas_on">on</a>]
+			  </p>
+				</th>
+			  </tr>
+			</thead>
+			
+			<tbody class="ai-area">
+			  
+			  <tr>
+				<td>
+			  <span class="hovertip" id="factual-widget">&#9658;</span>
+			  <label for="ai">
+				Factual Content Generation
+			  </label>
+			  <div class="table-responsive" style="display:none;" id="factual">
+			  </div>
 				</td>
-			      </tr>
-			    </tbody>
-			  </table>
-			</div>
-		      </td>
-		      <td width="40px">
-			<input type="checkbox" class="parent" name="ai" id="ai" value="1.0"/>
-		      </td>
-		    </tr>
-
-		    <tr>
-		      <td> 
-			<span class="hovertip" id="vision-widget">&#9658;
-			</span>
-			<label for="vision">
-			  Qwen
-			</label>
-			<div class="table-responsive" style="display:none;" id="vision-conferences">
-			  <table class="table-sm" style="width:100%">
-			    <tbody>
-			      <tr style="width:100%">
-				<td style="width:100%">
-				  <p class="text-muted" style="font-variant:small-caps;">
-				    <a href="https://www.cv-foundation.org/">cvf</a>
-				  </p>
-				  <table class="table-sm" style="width:100%;">
-				    <tr>
-				      <td>
-					<label for="cvpr">
-					  <a href="https://csconferences.org/#CVPR">CVPR</a>
-					</label>
-				      </td>
-				      <td align="right">
-					<input type="checkbox" name="cvpr" id="cvpr" value="1.0"/>
-				      </td>
-				    </tr>
-				    <tr>
-				      <td>
-					<label for="eccv">
-					  <a href="https://csconferences.org/#ECCV">ECCV</a>
-					</label>
-				      </td>
-				      <td align="right">
-					<input type="checkbox" name="eccv" id="eccv" value="1.0"/>
-				      </td>
-				    </tr>
-				    <tr>
-				      <td>
-					<label for="iccv">
-					  <a href="https://dblp.org/db/conf/iccv/index.html">ICCV</a>
-					</label>
-				      </td>
-				      <td align="right">
-					<input type="checkbox" name="iccv" id="iccv" value="1.0"/>
-				      </td>
-				    </tr>
-				  </table>
+				<td width="40px">
+			  <input type="checkbox" class="parent" name="fact" id="fact" value="1.0"/>
 				</td>
-			      </tr>
-			    </tbody>
-			  </table>
-			</div>
-		      </td>
-		      <td>
-			<input type="checkbox" class="parent" name="vision" id="vision" value="1.0"/>
-		      </td>
-		    </tr>
-		    <tr>
-		      <td>
-			<span class="hovertip" id="mlmining-widget">
-			  &#9658;
-			</span>
-			Falcon
-			<div class="table-responsive" style="display:none;" id="mlmining-conferences">
-			  <table class="table-sm" style="width:100%">
-			    <tbody>
-			      <tr style="width:100%">
-				<td style="width:100%">
-				  <p class="text-muted" style="font-variant:small-caps;">
-				    <a href="https://www.kdd.org/">acm sigkdd</a>, <a href="https://iclr.cc/">iclr</a>, <a href="http://www.machinelearning.org/">imls</a>, <a href="https://neurips.cc/">neurips/nips</a>
-				  </p>
-				  <table class="table-sm" style="width:100%;">
-				    <tr>
-				      <td>
-					<label for="iclr">
-					  <a href="https://csconferences.org/#ICLR">ICLR</a>
-					</label>
-				      </td>
-				      <td align="right">
-					<input type="checkbox" name="iclr" id="iclr" value="1.0"/>
-				      </td>
-				    </tr>
-				    <tr>
-				      <td>
-					<label for="icml">
-					  <a href="https://csconferences.org/#ICML">ICML</a>
-					</label>
-				      </td>
-				      <td align="right">
-					<input type="checkbox" name="icml" id="icml" value="1.0"/>
-				      </td>
-				    </tr>
-				    <tr>
-				      <td>
-					<label for="nips">
-					  <a href="https://csconferences.org/#NeurIPS">NeurIPS</a>
-					</label>
-				      </td>
-				      <td align="right">
-					<input type="checkbox" name="nips" id="nips" value="1.0"/>
-				      </td>
-				    </tr>
-				    <tr>
-				      <td colspan="2">
-					<hr>
-				      </td>
-				    </tr>
-				    <tr>
-				      <td>
-					<label for="kdd">
-					  <a href="https://dblp.org/db/conf/kdd/index.html">KDD</a>
-					</label>
-				      </td>
-				      <td align="right">
-					<input type="checkbox" name="kdd" id="kdd" value="1.0"/>
-				      </td>
-				    </tr>
-				  </table>
+			  </tr>
+  
+			  <tr>
+				<td> 
+			  <span class="hovertip" id="harmless-widget">&#9658;
+			  </span>
+			  <label for="vision">
+				Harmless Content Generation
+			  </label>
+			  <div class="table-responsive" style="display:none;" id="harmless">
+			  </div>
 				</td>
-			      </tr>
-			    </tbody>
-			  </table>
-			</div>
-		      </td>
-		      <td> 
-			<input type="checkbox" name="mlmining" id="mlmining" value="1.0"/>
-		      </td>
-		    </tr>
-
-		    <tr>
-		      <td> 
-			<span class="hovertip" id="nlp-widget">
-			  &#9658;
-			</span>
-			<label for="nlp">
-			  Natural language processing
-			</label>
-			<div class="table-responsive" style="display:none;" id="nlp-conferences">
-			  <table class="table-sm" style="width:100%">
-			    <tbody>
-			      <tr style="width:100%">
-				<td style="width:100%">
-				  <p class="text-muted" style="font-variant:small-caps;">
-				    <a href="https://www.aclweb.org/portal/">acl</a>
-				  </p>
-				  <table class="table-sm" style="width:100%;">
-				    <tr>
-				      <td>
-					<label for="acl">
-					  <a href="https://csconferences.org/#ACL">ACL</a>
-					</label>
-				      </td>
-				      <td align="right">
-					<input type="checkbox" name="acl" id="acl" value="1.0"/>
-				      </td>
-				    </tr>
-				    <tr>
-				      <td>
-					<label for="emnlp">
-					  <a href="https://csconferences.org/#EMNLP">EMNLP</a>
-					</label>
-				      </td>
-				      <td align="right">
-					<input type="checkbox" name="emnlp" id="emnlp" value="1.0"/>
-				      </td>
-				    </tr>
-				    <tr>
-				      <td>
-					<label for="naacl">
-					  <a href="https://dblp.org/db/conf/naacl/index.html">NAACL</a>
-					</label>
-				      </td>
-				      <td align="right">
-					<input type="checkbox" name="naacl" id="naacl" value="1.0"/>
-				      </td>
-				    </tr>
-				  </table>
+				<td>
+			  <input type="checkbox" class="parent" name="harm" id="harm" value="1.0"/>
 				</td>
-			      </tr>
-			    </tbody>
-			  </table>
-			</div>
-		      </td>
-		      <td>
-			<input type="checkbox" name="nlp" id="nlp" value="1.0"/>
-		      </td>
-		    </tr>
-
-		    <tr>
-		      <td>
-			<span class="hovertip" id="inforet-widget">
-			  &#9658;
-			</span>
-			<label for="inforet">
-			  Deepseek
-			</label>
-			<div class="table-responsive" style="display:none;" id="inforet-conferences">
-			  <table class="table-sm" style="width:100%">
-			    <tbody>
-			      <tr style="width:100%">
-				<td style="width:100%">
-				  <p class="text-muted" style="font-variant:small-caps;">
-				    <a href="http://sigir.org">acm sigir</a>
-				  </p> <!-- , <a href="https://sigweb.org">acm sigweb</a></p> -->
-				  <table class="table-sm" style="width:100%;">
-				    <tr>
-				      <td>
-					<label for="sigir">
-					  <a href="https://csconferences.org/#SIGIR">SIGIR</a>
-					</label>
-				      </td>
-				      <td align="right">
-					<input type="checkbox" name="sigir" id="sigir" value="1.0"/>
-				      </td>
-				    </tr>
-				    <tr>
-				      <td>
-					<label for="www">
-					  <a href="https://dblp.org/db/conf/www/index.html">WWW</a>
-					</label>
-				      </td>
-				      <td align="right">
-					<input type="checkbox" name="www" id="www" value="1.0"/>
-				      </td>
-				    </tr>
-				  </table>
+			  </tr>
+			  <tr>
+				<td>
+			  <span class="hovertip" id="false-widget">
+				&#9658;
+			  </span>
+			  False Assertion Resistance
+			  <div class="table-responsive" style="display:none;" id="false">
+			  </div>
 				</td>
-			      </tr>
-			    </tbody>
+				<td> 
+			  <input type="checkbox" name="fal" id="fal" value="1.0"/>
+				</td>
+			  </tr>
+  
+			  <tr>
+				<td> 
+			  <span class="hovertip" id="anchoring-widget">
+				&#9658;
+			  </span>
+			  <label for="anchoring">
+				Anchoring Bias Mitigation
+			  </label>
+			  <div class="table-responsive" style="display:none;" id="anchoringb">
+			  </div>
+				</td>
+				<td>
+			  <input type="checkbox" name="anchor" id="anchor" value="1.0"/>
+				</td>
+			  </tr>
+			  <tr>
+				<td> 
+			  <span class="hovertip" id="availibility-widget">
+				&#9658;
+			  </span>
+			  <label for="availability">
+				Availability Bias Mitigation
+			  </label>
+			  <div class="table-responsive" style="display:none;" id="avail">
+				
+			  </div>
+				</td>
+				<td>
+			  <input type="checkbox" name="av" id="av" value="1.0"/>
+				</td>
+			  </tr>
+			  <tr>
+				<td> 
+			  <span class="hovertip" id="nlp-widget">
+				&#9658;
+			  </span>
+			  <label for="confirmation">
+				Confirmation Bias Mitigation
+			  </label>
+			  <div class="table-responsive" style="display:none;" id="confirmationb">
+				
+			  </div>
+				</td>
+				<td>
+			  <input type="checkbox" name="confirm" id="confirm" value="1.0"/>
+				</td>
+			  </tr>
+			  <tr>
+				<td> 
+			  <span class="hovertip" id="framing-widget">
+				&#9658;
+			  </span>
+			  <label for="framing">
+				Framing Bias Mitigation
+			  </label>
+			  <div class="table-responsive" style="display:none;" id="fram">
+				
+			  </div>
+				</td>
+				<td>
+			  <input type="checkbox" name="fra" id="fra" value="1.0"/>
+				</td>
+			  </tr>
+			  <tr>
+				<td> 
+			  <span class="hovertip" id="nlp-widget">
+				&#9658;
+			  </span>
+			  <label for="nlp">
+				Prospect Theory Bias Mitigation
+			  </label>
+			  <div class="table-responsive" style="display:none;" id="nlp-conferences">
+				
+			  </div>
+				</td>
+				<td>
+			  <input type="checkbox" name="nlp" id="nlp" value="1.0"/>
+				</td>
+			  </tr>
+			  <tr>
+				<td> 
+			  <span class="hovertip" id="nlp-widget">
+				&#9658;
+			  </span>
+			  <label for="nlp">
+				Political Bias Mitigation
+			  </label>
+			  <div class="table-responsive" style="display:none;" id="nlp-conferences">
+				
+			  </div>
+				</td>
+				<td>
+			  <input type="checkbox" name="pol" id="pol" value="1.0"/>
+				</td>
+			  </tr>
+			  <tr>
+				<td> 
+			  <span class="hovertip" id="nlp-widget">
+				&#9658;
+			  </span>
+			  <label for="nlp">
+				Racial Bias Mitigation
+			  </label>
+			  <div class="table-responsive" style="display:none;" id="nlp-conferences">
+				
+			  </div>
+				</td>
+				<td>
+			  <input type="checkbox" name="race" id="race" value="1.0"/>
+				</td>
+			  </tr>
+			  <tr>
+				<td> 
+			  <span class="hovertip" id="nlp-widget">
+				&#9658;
+			  </span>
+			  <label for="nlp">
+				Religious Bias Mitigation
+			  </label>
+			  <div class="table-responsive" style="display:none;" id="nlp-conferences">
+				
+			  </div>
+				</td>
+				<td>
+			  <input type="checkbox" name="relig" id="relig" value="1.0"/>
+				</td>
+			  </tr>
+			  <tr>
+				<td> 
+			  <span class="hovertip" id="nlp-widget">
+				&#9658;
+			  </span>
+			  <label for="nlp">
+				Attribution Bias Mitigation
+			  </label>
+			  <div class="table-responsive" style="display:none;" id="nlp-conferences">
+				
+			  </div>
+				</td>
+				<td>
+			  <input type="checkbox" name="attr" id="attr" value="1.0"/>
+				</td>
+			  </tr>
+			</tbody>
+			  </tbody>
 			  </table>
+			  </div>
+			  </div>
+			  <div class="col-xs-6 col-sm-push-6 col-sm-6 col-md-6 col-lg-6 text-center">
+				<div id="success">
+				</div>
+			  </div>
+			  
+			  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-center">
+				<div class="table-responsive">
+				  <table class="table table-sm table-striped" style="border-collapse: separate; border-spacing: 0 4px;">
+					<thead>
+					  <tr>
+						<th style="text-align: left; font-weight: bold;">#</th>
+						<th style="text-align: left; font-weight: bold;">LLM</th>
+						<th style="text-align: right; font-weight: bold;">Score</th>
+					  </tr>
+					</thead>
+					<tbody id="llm-table-body">
+					  <!-- JS will populate LLM rows here -->
+					</tbody>
+				  </table>
+				</div>
+			  </div>
+			  
+			  
+	  
+			  
 			</div>
-		      </td>
-		      <td>
-			<input type="checkbox" name="inforet" id="inforet" value="1.0"/>
-		      </td>
-		    </tr>
-
-		  </tbody>
-
-
-	    <!-- start ranking window -->
-	    
-	    <div class="col-xs-6 col-sm-push-6 col-sm-6 col-md-6 col-lg-6 text-center">
-	      <div id="success">
-	      </div>
-	    </div>
-	    
-	    <!-- end ranking window -->
-
-	    
-	  </div>
+			
+			<div class="page-footer">
+			  <p>
+				<br />
+				This ranking is
+				designed to identify institutions and faculty actively
+				engaged in research across a number of areas of
+				computer science, based on the number of publications
+				by faculty that have appeared at the most selective
+				conferences in each area of computer science (see the <b><a href="faq.html">FAQ</a></b> for more details).
+			  </p>
+		  </div> 
+			
+					  <script src="llm-rankings.js"></script>
+					  
   </body>
 </html>
