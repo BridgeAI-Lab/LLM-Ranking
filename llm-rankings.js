@@ -162,7 +162,7 @@ const biasMap = {
               <thead>
                 <tr>
                   <th><i>TeLeR Levels</i></th>
-                  <th style="text-align: right;"><i>Adj. #</i></th>
+                  <th style="text-align: right;"><i>Score</i></th>
                 </tr>
               </thead>
               <tbody>
