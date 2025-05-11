@@ -19,15 +19,17 @@
     <meta name="description" content="Computer Science Rankings">
     
     <link rel="stylesheet" href="css/csrankings.css">
-    <link rel="stylesheet" href="css/csrankings-extra.css">
+    <!-- <link rel="stylesheet" href="css/csrankings-extra.css"> -->
+	<link rel="stylesheet" href="css/modern.css">
+
     
     <title>LLM Rankings</title>
  <style type="text/css">
       @media (max-width: 768px) {
-      .row.switch-xs {
+      /* .row.switch-xs {
       transform: rotate(180deg);
       direction: rtl;
-      }
+      } */
       
       @media (max-width: 768px) {
       .col-centered {
@@ -41,11 +43,11 @@
       }
       }
       
-      .row.switch-xs > [class^="col-"] {
+      /* .row.switch-xs > [class^="col-"] {
       transform: rotate(-180deg);
       direction: ltr;
       }
-      }
+      } */
       
       body {
       font-family: Helvetica, Arial;
@@ -75,8 +77,22 @@
       
       .area_group_selector { cursor : pointer; }
 
-      .hovertip { cursor : pointer;
-		  color : blue }
+      /* .hovertip { cursor : pointer;
+		  color : blue } */
+		  /* .hovertip {
+  cursor: pointer;
+  color: #2a7a4e;             /* Deep indigo blue */
+  /* font-size: 14px;
+  font-weight: bold;
+  transition: transform 0.2s ease, color 0.2s ease;
+  display: inline-block;
+  margin-right: 6px;
+} */ 
+
+/* .llm-row:hover .hovertip {
+  color: #2a7a4e;             /* Muted green on hover */
+  /* transform: scale(1.2);      /* Slight grow effect on hover */
+/*} */
       
       .bluefont  {
 	  color : blue;
@@ -159,9 +175,9 @@
     <script defer src="js/vega-embed-6.18.2.min.js" type="text/javascript"></script>
     <script defer src="js/papaparse.min.js" type="text/javascript"></script>
     <script defer src="continents.js" type="text/javascript"></script>
-    <script defer src="js/bootstrap.min.js" type="text/javascript"></script>
+    <!-- <script defer src="js/bootstrap.min.js" type="text/javascript"></script>
     <script defer src="js/navigo.min.js"></script>
-    <script src="csrankings.js" type="text/javascript" defer></script>
+    <script src="csrankings.js" type="text/javascript" defer></script> -->
   </head>
 
   <body>
@@ -169,42 +185,48 @@
       <form id="rankform" name="rankform" action="" method="get" target="_blank">
 	<div class="page-header">
 
-          <h1>LLMRankings</h1>
+          <h1>Large Language Model Ranking</h1>
 
-	  <div class="panel panel-info">
-	    <div class="panel-heading">
-	      <p>
-			Welcome to LLMRankings, a platform designed to evaluate and rank Large Language Models (LLMs) based on a comprehensive set of reasoning, narrative understanding, social-awareness, ethical fairness, adherence to instructions, and multilingual capabilities. Our rankings are derived from real-world test cases that measure LLMs' ability to perform complex tasks such as deductive reasoning, factual content generation, bias mitigation, and empathetic thinking. By providing transparent and data-driven insights, LLMRankings helps researchers, developers, and enthusiasts identify the best-performing AI models for various applications. <b>Click on a triangle</b> (<font color="blue">&#9658;</font>) to expand
-			to see TeLeR Level Scores.
-		  </p>
+	 <div> <!-- <div class="panel panel-info"> -->
+	   <div> <!-- <div class="panel-heading"> -->
+	      <p class="welcome-text">
+			Welcome to Large Language Model Ranking, a platform designed to evaluate and rank Large Language Models (LLMs) based on their ability to reason fairly and resist cognitive biases. Our evaluations focus on key bias types—including anchoring, availability, confirmation, framing, attribution, representativeness, interpretation, and prospect theory biases—to assess how robustly LLMs handle common human reasoning pitfalls. Using a structured scoring system, this platform provides transparent, empirical insights into model behavior, helping researchers and practitioners identify models that are not only accurate but also cognitively trustworthy and bias-aware. </p>
+		  <p class="welcome-text">Each model's score is computed by averaging its performance across selected bias categories at a given temperature setting. Higher scores indicate stronger resistance to bias. When expanded (click on green triangles <span class="hovertip">&#9658;</span>), the table reveals scores across five <a href="https://aclanthology.org/2023.findings-emnlp.946.pdf">TELeR levels</a>, which represent variations in prompt formulation, offering a more nuanced view of a model's consistency across different prompting conditions.</p>	
 		  <div class="row">
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
-			  Select Model Temperature for ranking 
-			  <label for="temp">temp</label>
+			  Select Model Temperature for ranking*.
+			  <label for="temp">Temperature: </label>
 			  <select id="temp" name="temp">
 				<optgroup label="temparature">
-				  <option value="0.25">0.25</option>
-						  <option value="0.50">0.50</option>
-				  <option value="0.75" selected="selected">0.75</option>
+				  <option value="0.2" selected="selected">0.2</option>
+						  <option value="0.4">0.4</option>
+				  <option value="0.6">0.6</option>
+				  <option value="0.8">0.8</option>
 				</optgroup>
 			</select>
 			</div>
 			  </div>
-	    </div>
-	  </div>
+	     </div>
+	  </div> 
+	  <hr style="border: none; height: 1px; background-color: #ccc; ">
+	  <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-start;">
 
-	  <div class="row switch-xs row-centered">
-
-	    <div class="col-centered col-xs-6 col-sm-push-6 col-sm-6 col-md-6 col-lg-6 text-center">
-			<div class="table-responsive">
-		  <table class="table-fit table table-sm table-striped">
+<!-- Left Table (fixed width, does not stretch) -->
+<div style="flex: 0 0 450px; max-width: 100%;" class="text-left">
+  <div class="table-responsive">
+			<table class="table table-sm table-striped" style="width: 100%;">
+	  
 			
 			<thead>
 			  <tr>
 				<th colspan="2">
-			  <p style="font-size: 125%">All Capabilities
-				&nbsp;<span style="font-size: 80%;">[<a class="area_group_selector" id="all_areas_off"><font color="blue"><b>off</b></font></a> | <a class="area_group_selector" id="all_areas_on"><font color="blue"><b>on</b></font></a>]</span>
-			  </p>
+			  <!-- <p style="font-size: 125%">All Capabilities
+				&nbsp;<span class="toggle-buttons" data-group="all">
+					<button type="button" class="toggle-button area_group_selector" id="all_areas_off" data-group="all" data-toggle="off">Off</button>
+					<button type="button" class="toggle-button area_group_selector" id="all_areas_on" data-group="all" data-toggle="on">On</button>
+				  </span>
+				  
+			  </p> -->
 				</th>
 			  </tr>
 			</thead>
@@ -212,7 +234,11 @@
 			  <tr>
 				<th colspan="2">
 			  <p class="ai-area">Ethical/Fair Response Generation
-				[<a class="area_group_selector" id="ai_areas_off">off</a> | <a class="area_group_selector" id="ai_areas_on">on</a>]
+				<!-- [<a class="area_group_selector" id="ai_areas_off">off</a> | <a class="area_group_selector" id="ai_areas_on">on</a>]-->
+				<span class="toggle-buttons" data-group="all"> 
+					<button type="button" class="toggle-button area_group_selector" id="ai_areas_off" data-group="all" data-toggle="off">Off</button>
+					<button type="button" class="toggle-button area_group_selector" id="ai_areas_on" data-group="all" data-toggle="on">On</button>
+				  </span>
 			  </p>
 				</th>
 			  </tr>
@@ -222,51 +248,38 @@
 			  
 			  <tr>
 				<td>
-			  <span class="hovertip" id="factual-widget">&#9658;</span>
+			  <!-- <span class="hovertip" id="factual-widget">&#9658;</span> -->
 			  <label for="ai">
-				Factual Content Generation
+				Representativeness Bias
 			  </label>
-			  <div class="table-responsive" style="display:none;" id="factual">
+			  <div class="table-responsive" style="display:none;" id="rep">
 			  </div>
 				</td>
 				<td width="40px">
-			  <input type="checkbox" class="parent" name="fact" id="fact" value="1.0"/>
+			  <input type="checkbox" class="parent" name="rep" id="rep" value="1.0"/>
 				</td>
 			  </tr>
   
 			  <tr>
 				<td> 
-			  <span class="hovertip" id="harmless-widget">&#9658;
-			  </span>
+			  <!-- <span class="hovertip" id="harmless-widget">&#9658;
+			  </span> -->
 			  <label for="vision">
-				Harmless Content Generation
+				Interpretation Bias
 			  </label>
-			  <div class="table-responsive" style="display:none;" id="harmless">
+			  <div class="table-responsive" style="display:none;" id="inter">
 			  </div>
 				</td>
 				<td>
-			  <input type="checkbox" class="parent" name="harm" id="harm" value="1.0"/>
-				</td>
-			  </tr>
-			  <tr>
-				<td>
-			  <span class="hovertip" id="false-widget">
-				&#9658;
-			  </span>
-			  False Assertion Resistance
-			  <div class="table-responsive" style="display:none;" id="false">
-			  </div>
-				</td>
-				<td> 
-			  <input type="checkbox" name="fal" id="fal" value="1.0"/>
+			  <input type="checkbox" class="parent" name="inter" id="inter" value="1.0"/>
 				</td>
 			  </tr>
   
 			  <tr>
 				<td> 
-			  <span class="hovertip" id="anchoring-widget">
+			  <!-- <span class="hovertip" id="anchoring-widget">
 				&#9658;
-			  </span>
+			  </span> -->
 			  <label for="anchoring">
 				Anchoring Bias Mitigation
 			  </label>
@@ -279,11 +292,11 @@
 			  </tr>
 			  <tr>
 				<td> 
-			  <span class="hovertip" id="availibility-widget">
-				&#9658;
+			  <!-- <span class="hovertip" id="availibility-widget">
+				&#9658; -->
 			  </span>
 			  <label for="availability">
-				Availability Bias Mitigation
+				Availability Bias
 			  </label>
 			  <div class="table-responsive" style="display:none;" id="avail">
 				
@@ -295,11 +308,11 @@
 			  </tr>
 			  <tr>
 				<td> 
-			  <span class="hovertip" id="nlp-widget">
+			  <!-- <span class="hovertip" id="nlp-widget">
 				&#9658;
-			  </span>
+			  </span> -->
 			  <label for="confirmation">
-				Confirmation Bias Mitigation
+				Confirmation Bias
 			  </label>
 			  <div class="table-responsive" style="display:none;" id="confirmationb">
 				
@@ -311,11 +324,11 @@
 			  </tr>
 			  <tr>
 				<td> 
-			  <span class="hovertip" id="framing-widget">
+			  <!-- <span class="hovertip" id="framing-widget">
 				&#9658;
-			  </span>
+			  </span> -->
 			  <label for="framing">
-				Framing Bias Mitigation
+				Framing Bias
 			  </label>
 			  <div class="table-responsive" style="display:none;" id="fram">
 				
@@ -327,11 +340,11 @@
 			  </tr>
 			  <tr>
 				<td> 
-			  <span class="hovertip" id="nlp-widget">
+			  <!-- <span class="hovertip" id="nlp-widget">
 				&#9658;
-			  </span>
+			  </span> -->
 			  <label for="nlp">
-				Prospect Theory Bias Mitigation
+				Prospect Theory Bias
 			  </label>
 			  <div class="table-responsive" style="display:none;" id="nlp-conferences">
 				
@@ -340,62 +353,13 @@
 				<td>
 			  <input type="checkbox" name="nlp" id="nlp" value="1.0"/>
 				</td>
-			  </tr>
-			  <tr>
+				<tr>
 				<td> 
-			  <span class="hovertip" id="nlp-widget">
+			  <!-- <span class="hovertip" id="nlp-widget">
 				&#9658;
-			  </span>
+			  </span> -->
 			  <label for="nlp">
-				Political Bias Mitigation
-			  </label>
-			  <div class="table-responsive" style="display:none;" id="nlp-conferences">
-				
-			  </div>
-				</td>
-				<td>
-			  <input type="checkbox" name="pol" id="pol" value="1.0"/>
-				</td>
-			  </tr>
-			  <tr>
-				<td> 
-			  <span class="hovertip" id="nlp-widget">
-				&#9658;
-			  </span>
-			  <label for="nlp">
-				Racial Bias Mitigation
-			  </label>
-			  <div class="table-responsive" style="display:none;" id="nlp-conferences">
-				
-			  </div>
-				</td>
-				<td>
-			  <input type="checkbox" name="race" id="race" value="1.0"/>
-				</td>
-			  </tr>
-			  <tr>
-				<td> 
-			  <span class="hovertip" id="nlp-widget">
-				&#9658;
-			  </span>
-			  <label for="nlp">
-				Religious Bias Mitigation
-			  </label>
-			  <div class="table-responsive" style="display:none;" id="nlp-conferences">
-				
-			  </div>
-				</td>
-				<td>
-			  <input type="checkbox" name="relig" id="relig" value="1.0"/>
-				</td>
-			  </tr>
-			  <tr>
-				<td> 
-			  <span class="hovertip" id="nlp-widget">
-				&#9658;
-			  </span>
-			  <label for="nlp">
-				Attribution Bias Mitigation
+				Fundamental Attribution Error Bias
 			  </label>
 			  <div class="table-responsive" style="display:none;" id="nlp-conferences">
 				
@@ -410,17 +374,17 @@
 			  </table>
 			  </div>
 			  </div>
-			  <div class="col-xs-6 col-sm-push-6 col-sm-6 col-md-6 col-lg-6 text-center">
+			  <!-- <div class="col-xs-6 col-sm-push-6 col-sm-6 col-md-6 col-lg-6 text-center">
 				<div id="success">
 				</div>
-			  </div>
+			  </div> -->
 			  
-			  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-center">
-				<div class="table-responsive">
-				  <table class="table table-sm table-striped" style="border-collapse: separate; border-spacing: 0 4px;">
-					<thead>
+			  <div style="flex: 1; min-width: 300px;" class="text-center">
+  <div style="max-height: 80vh; overflow-y: auto; padding-right: 10px;">
+    <table class="table table-sm table-striped" id="llm-ranking-table" style="border-collapse: separate; border-spacing: 0 4px; width: 100%;">
+      <thead>
 					  <tr>
-						<th style="text-align: left; font-weight: bold;">#</th>
+						<th style="text-align: left; font-weight: bold;">Rank</th>
 						<th style="text-align: left; font-weight: bold;">LLM</th>
 						<th style="text-align: right; font-weight: bold;">Score</th>
 					  </tr>
@@ -431,21 +395,17 @@
 				  </table>
 				</div>
 			  </div>
-			  
-			  
-	  
-			  
 			</div>
-			
+		
+			<hr style="border: none; height: 1px; background-color: #ccc; margin: 10px 0;">
 			<div class="page-footer">
+				<p>
+					[ * One of the API models (Gpt o4 mini) has a different temperature than all others ("1.0") as this was the lowest we could set it to ]
+				</p>
 			  <p>
 				<br />
-				This ranking is
-				designed to identify institutions and faculty actively
-				engaged in research across a number of areas of
-				computer science, based on the number of publications
-				by faculty that have appeared at the most selective
-				conferences in each area of computer science (see the <b><a href="faq.html">FAQ</a></b> for more details).
+				This ranking platform is developed by the Bridge-AI Lab, Department of Computer Science, University of Central Florida, as part of ongoing research into fairness, bias mitigation, and trustworthiness in large language models. The evaluations aim to inform the broader AI community by highlighting model behavior under various cognitive bias scenarios. All results are based on systematically designed test sets and transparent scoring criteria.
+				<!--(see the <b><a href="faq.html">FAQ</a></b> for more details).-->
 			  </p>
 		  </div> 
 			
