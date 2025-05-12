@@ -156,22 +156,32 @@ function renderLLMTable(selectedBiases) {
           </tr>
         </thead>
         <tbody>
-        ${row.levels.map((score, i) => {
-          const levelNames = [
+        ${(() => {
+          const levelLabels = [
             "Level 1 - Minimum Details",
             "Level 2 - Moderate Details",
             "Level 3 - Moderate Listwise Details",
             "Level 4 - Significant Details + User Expectation",
             "Level 5 - Maximum Details"
           ];
-          return `
+        
+          // Zip level name with score
+          const levelsWithScores = row.levels.map((score, idx) => ({
+            label: levelLabels[idx],
+            score: score
+          }));
+        
+          // Sort by score descending
+          levelsWithScores.sort((a, b) => b.score - a.score);
+        
+          return levelsWithScores.map(({ label, score }) => `
             <tr>
               <td></td>
-              <td>${levelNames[i]}</td>
+              <td>${label}</td>
               <td style="text-align: right;">${score.toFixed(3)}</td>
             </tr>
-          `;
-        }).join("")}
+          `).join("");
+        })()}        
         </tbody>
       </table>
     </td>
