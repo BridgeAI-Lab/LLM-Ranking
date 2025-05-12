@@ -198,12 +198,17 @@ function attachExpandCollapse() {
   });
 }
 
+function copyBibtex(event) {
+  event.preventDefault(); // extra safety
+  const text = document.getElementById('bibtex-block').innerText;
+  const button = document.getElementById('copy-button');
 
-function copyBibtex() {
-    const text = document.getElementById('bibtex-block').innerText;
-    navigator.clipboard.writeText(text).then(() => {
-      alert("BibTeX copied to clipboard!");
-    });
-  }
+  navigator.clipboard.writeText(text).then(() => {
+    button.textContent = "Copied!";
+    setTimeout(() => {
+      button.textContent = "Copy";
+    }, 2000);
+  });
+}
 
 
