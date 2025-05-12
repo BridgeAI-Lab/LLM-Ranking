@@ -251,4 +251,9 @@ a {
   #llm-ranking-table td:last-child {
     border-right: none;
   }
+
+  .orange-link {
+    color: #df7d15;
+  }
+  
   

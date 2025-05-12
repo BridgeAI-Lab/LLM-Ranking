@@ -190,13 +190,13 @@
 	   <div> <!-- <div class="panel-heading"> -->
 	      <p class="welcome-text">
 			Welcome to Large Language Model Ranking, a platform designed to evaluate and rank Large Language Models (LLMs) based on their ability to reason fairly and resist cognitive biases. Our evaluations focus on key bias types—including anchoring, availability, confirmation, framing, attribution, representativeness, interpretation, and prospect theory biases—to assess how robustly LLMs handle common human reasoning pitfalls. Using a structured scoring system, this platform provides transparent, empirical insights into model behavior, helping researchers and practitioners identify models that are not only accurate but also cognitively trustworthy and bias-aware. </p>
-		  <p class="welcome-text">Each model's score is computed by averaging its performance across selected bias categories at a given temperature setting. Higher scores indicate stronger resistance to bias. When expanded (click on green triangles <span class="hovertip">&#9658;</span>), the table reveals scores across five <a href="https://aclanthology.org/2023.findings-emnlp.946.pdf">TELeR levels</a>, which represent variations in prompt formulation, offering a more nuanced view of a model's consistency across different prompting conditions.</p>	
+		  <p class="welcome-text">Each model's score is computed by averaging its performance across selected bias categories at a given temperature setting. Higher scores indicate stronger resistance to bias. When expanded (click on green triangles <span class="hovertip">&#9658;</span>), the table reveals scores across five <a href="https://aclanthology.org/2023.findings-emnlp.946.pdf" class="orange-link">TELeR levels</a>, which represent variations in prompt formulation, offering a more nuanced view of a model's consistency across different prompting conditions.</p>	
 		  <div class="row">
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
 			  Select Model Temperature for ranking*.
 			  <label for="temp">Temperature: </label>
 			  <select id="temp" name="temp">
-				<optgroup label="temparature">
+				<optgroup label="temperature">
 				  <option value="0.2" selected="selected">0.2</option>
 						  <option value="0.4">0.4</option>
 				  <option value="0.6">0.6</option>
@@ -403,7 +403,7 @@
 				</p>
 			  <p>
 				<br />
-				This ranking platform is developed by the <a href="https://karmake2.github.io/">Bridge-AI</a> Lab, Department of Computer Science, University of Central Florida, as part of ongoing research into fairness, bias mitigation, and trustworthiness in large language models. The evaluations aim to inform the broader AI community by highlighting model behavior under various cognitive bias scenarios. All results are based on systematically designed test sets and transparent scoring criteria.
+				This ranking platform is developed by the <a href="https://karmake2.github.io/" class="orange-link">Bridge-AI</a> Lab, Department of Computer Science, University of Central Florida, as part of ongoing research into fairness, bias mitigation, and trustworthiness in large language models. The evaluations aim to inform the broader AI community by highlighting model behavior under various cognitive bias scenarios. All results are based on systematically designed test sets and transparent scoring criteria.
 				<!--(see the <b><a href="faq.html">FAQ</a></b> for more details).-->
 			  </p>
 		  </div> 
