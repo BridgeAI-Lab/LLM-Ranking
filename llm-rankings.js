@@ -137,32 +137,41 @@ function renderLLMTable(selectedBiases) {
     tableBody.innerHTML += `
   <tr class="llm-row custom-row" data-target="${id}">
     <td style="width: 8%;">${index + 1}</td>
-    <td style="width: 70%;"><span class="hovertip">&#9658;</span> ${row.name}</td>
-    <td style="width: 22%; text-align: right;">${row.score.toFixed(3)}</td>
+    <td style="width: 72%;"><span class="hovertip">&#9658;</span> ${row.name}</td>
+    <td style="width: 20%; text-align: right;">${row.score.toFixed(3)}</td>
   </tr>
   <tr id="${id}" class="llm-details" style="display: none;">
     <td colspan="3" style="padding: 0;">
       <table class="table table-sm" style="width: 100%; margin: 0; border-collapse: separate; border-spacing: 0;">
         <colgroup>
           <col style="width: 8%;"> <!-- Indent or spacer -->
-          <col style="width: 70%;"> <!-- Align with LLM -->
-          <col style="width: 22%;"> <!-- Align with Score -->
+          <col style="width: 72%;"> <!-- Align with LLM -->
+          <col style="width: 20%;"> <!-- Align with Score -->
         </colgroup>
         <thead>
           <tr>
             <td></td>
-            <th>TELeR Levels</th>
+            <th>Level of Details in Prompts defined by TELeR Taxonomy</th>
             <th style="text-align: right;">Score</th>
           </tr>
         </thead>
         <tbody>
-          ${row.levels.map((score, i) => `
+        ${row.levels.map((score, i) => {
+          const levelNames = [
+            "Level 1 - Minimum Details",
+            "Level 2 - Moderate Details",
+            "Level 3 - Moderate Listwise Details",
+            "Level 4 - Significant Details + User Expectation",
+            "Level 5 - Maximum Details"
+          ];
+          return `
             <tr>
               <td></td>
-              <td>Level ${i + 1}</td>
+              <td>${levelNames[i]}</td>
               <td style="text-align: right;">${score.toFixed(3)}</td>
             </tr>
-          `).join("")}
+          `;
+        }).join("")}
         </tbody>
       </table>
     </td>
@@ -188,3 +197,13 @@ function attachExpandCollapse() {
     });
   });
 }
+
+
+function copyBibtex() {
+    const text = document.getElementById('bibtex-block').innerText;
+    navigator.clipboard.writeText(text).then(() => {
+      alert("BibTeX copied to clipboard!");
+    });
+  }
+
+
