@@ -15,7 +15,7 @@ let llmData = {};
 let selectedTemperature = "0.2";
 
 // Load JSON and initialize checkboxes
-fetch("full_report-small.json")
+fetch("data/full_report-small.json")
   .then((res) => res.json())
   .then((data) => {
     llmData = data;
