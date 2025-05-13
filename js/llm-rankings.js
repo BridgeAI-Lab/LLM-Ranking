@@ -15,7 +15,7 @@ let llmData = {};
 let selectedTemperature = "0.2";
 
 // Load JSON and initialize checkboxes
-fetch("data/full_report-small.json")
+fetch("data/data.json")
   .then((res) => res.json())
   .then((data) => {
     llmData = data;
@@ -122,7 +122,7 @@ function renderLLMTable(selectedBiases) {
       );
 
       rows.push({
-        name: llmName,
+        name: biasScores.displayName || llmName,  // Use displayName if it exists
         score: avgFinal,
         levels: avgLevels,
       });
@@ -144,9 +144,9 @@ function renderLLMTable(selectedBiases) {
     <td colspan="3" style="padding: 0;">
       <table class="table table-sm" style="width: 100%; margin: 0; border-collapse: separate; border-spacing: 0;">
         <colgroup>
-          <col style="width: 8%;"> <!-- Indent or spacer -->
-          <col style="width: 72%;"> <!-- Align with LLM -->
-          <col style="width: 20%;"> <!-- Align with Score -->
+          <col style="width: 8%;">
+          <col style="width: 72%;">
+          <col style="width: 20%;">
         </colgroup>
         <thead>
           <tr>
@@ -164,16 +164,14 @@ function renderLLMTable(selectedBiases) {
             "Level 4 - Significant Details + User Expectation",
             "Level 5 - Maximum Details"
           ];
-        
-          // Zip level name with score
+
           const levelsWithScores = row.levels.map((score, idx) => ({
             label: levelLabels[idx],
             score: score
           }));
-        
-          // Sort by score descending
+
           levelsWithScores.sort((a, b) => b.score - a.score);
-        
+
           return levelsWithScores.map(({ label, score }) => `
             <tr>
               <td></td>
@@ -187,11 +185,11 @@ function renderLLMTable(selectedBiases) {
     </td>
   </tr>
 `;
-
   });
 
   attachExpandCollapse();
 }
+
 
 function attachExpandCollapse() {
   document.querySelectorAll(".llm-row").forEach((row) => {
