@@ -1,5 +1,6 @@
 {
     "Qwen/Qwen2.5-7B-Instruct": {
+        "displayName": "Qwen2.5-7B (Qwen)",
         "anchoring_bias": {
             "0.2": {
                 "total_samples": 5000,
@@ -306,6 +307,7 @@
         }
     },
     "deepseek-ai/DeepSeek-R1-Distill-Llama-8B": {
+        "displayName": "DeepSeek-R1-Distill-Llama-8B (DeepSeek-AI)",
         "anchoring_bias": {
             "0.2": {
                 "total_samples": 5000,
@@ -612,6 +614,7 @@
         }
     },
     "deepseek-ai/DeepSeek-R1-Distill-Qwen-7B": {
+        "displayName": "DeepSeek-R1-Distill-Qwen-7B (DeepSeek-AI)",
         "anchoring_bias": {
             "0.2": {
                 "total_samples": 5000,
@@ -918,6 +921,7 @@
         }
     },
     "meta-llama/Llama-3.1-8B-Instruct": {
+        "displayName": "Llama-3.1-8B (Meta)",
         "anchoring_bias": {
             "0.2": {
                 "total_samples": 5000,
@@ -1224,6 +1228,7 @@
         }
     },
     "tiiuae/Falcon3-7B-Instruct": {
+        "displayName": "Falcon3-7B (Tiiuae)",
         "anchoring_bias": {
             "0.2": {
                 "total_samples": 5000,
@@ -1530,6 +1535,7 @@
         }
     },
     "allenai/OLMo-2-1124-7B-Instruct": {
+        "displayName": "OLMo-2-1124-7B (AllenAI)",
         "anchoring_bias": {
             "0.2": {
                 "total_samples": 5000,
@@ -1836,6 +1842,7 @@
         }
     },
     "mistralai/Ministral-8B-Instruct-2410": {
+        "displayName": "Ministral-8B-2410 (MistralAI)",
         "anchoring_bias": {
             "0.2": {
                 "total_samples": 5000,
@@ -2142,6 +2149,7 @@
         }
     },
     "deepcogito/cogito-v1-preview-llama-8B": {
+        "displayName": "Cogito-v1-preview-llama-8B (DeepCogito)",
         "anchoring_bias": {
             "0.2": {
                 "total_samples": 5000,
@@ -2444,6 +2452,313 @@
                 "level_3": 0.534,
                 "level_4": 0.624,
                 "level_5": 0.5860000000000001
+            }
+        }
+    },
+    "google/gemma-3-4b-it": {
+        "displayName": "Gemma-3-4b-it (Google)",
+        "anchoring_bias": {
+            "0.2": {
+                "total_samples": 5000,
+                "average": 0.5598000000000001,
+                "level_1": 0.5449999999999999,
+                "level_2": 0.5409999999999999,
+                "level_3": 0.565,
+                "level_4": 0.573,
+                "level_5": 0.575
+            },
+            "0.4": {
+                "total_samples": 5000,
+                "average": 0.5546,
+                "level_1": 0.5429999999999999,
+                "level_2": 0.531,
+                "level_3": 0.5640000000000001,
+                "level_4": 0.556,
+                "level_5": 0.579
+            },
+            "0.6": {
+                "total_samples": 5000,
+                "average": 0.56,
+                "level_1": 0.528,
+                "level_2": 0.536,
+                "level_3": 0.5660000000000001,
+                "level_4": 0.5760000000000001,
+                "level_5": 0.594
+            },
+            "0.8": {
+                "total_samples": 5000,
+                "average": 0.5602,
+                "level_1": 0.538,
+                "level_2": 0.546,
+                "level_3": 0.562,
+                "level_4": 0.5720000000000001,
+                "level_5": 0.583
+            }
+        },
+        "availability_bias": {
+            "0.2": {
+                "total_samples": 3750,
+                "average": 0.784,
+                "level_1": 0.7066666666666667,
+                "level_2": 0.8,
+                "level_3": 0.804,
+                "level_4": 0.784,
+                "level_5": 0.8253333333333334
+            },
+            "0.4": {
+                "total_samples": 3750,
+                "average": 0.7807999999999999,
+                "level_1": 0.7093333333333334,
+                "level_2": 0.796,
+                "level_3": 0.7906666666666666,
+                "level_4": 0.7893333333333333,
+                "level_5": 0.8186666666666667
+            },
+            "0.6": {
+                "total_samples": 3750,
+                "average": 0.7896,
+                "level_1": 0.7173333333333334,
+                "level_2": 0.7866666666666666,
+                "level_3": 0.8106666666666666,
+                "level_4": 0.7933333333333333,
+                "level_5": 0.84
+            },
+            "0.8": {
+                "total_samples": 3750,
+                "average": 0.7925333333333333,
+                "level_1": 0.7226666666666667,
+                "level_2": 0.8146666666666667,
+                "level_3": 0.792,
+                "level_4": 0.808,
+                "level_5": 0.8253333333333334
+            }
+        },
+        "confirmation_bias": {
+            "0.2": {
+                "total_samples": 2500,
+                "average": 0.8824,
+                "level_1": 0.736,
+                "level_2": 0.836,
+                "level_3": 0.938,
+                "level_4": 0.96,
+                "level_5": 0.942
+            },
+            "0.4": {
+                "total_samples": 2500,
+                "average": 0.8832,
+                "level_1": 0.738,
+                "level_2": 0.864,
+                "level_3": 0.952,
+                "level_4": 0.9359999999999999,
+                "level_5": 0.926
+            },
+            "0.6": {
+                "total_samples": 2500,
+                "average": 0.8876,
+                "level_1": 0.738,
+                "level_2": 0.848,
+                "level_3": 0.958,
+                "level_4": 0.954,
+                "level_5": 0.94
+            },
+            "0.8": {
+                "total_samples": 2500,
+                "average": 0.8835999999999999,
+                "level_1": 0.738,
+                "level_2": 0.844,
+                "level_3": 0.942,
+                "level_4": 0.95,
+                "level_5": 0.944
+            }
+        },
+        "framing_bias": {
+            "0.2": {
+                "total_samples": 3750,
+                "average": 0.3304,
+                "level_1": 0.33466666666666667,
+                "level_2": 0.42933333333333334,
+                "level_3": 0.36,
+                "level_4": 0.2413333333333333,
+                "level_5": 0.2866666666666666
+            },
+            "0.4": {
+                "total_samples": 3750,
+                "average": 0.32186666666666663,
+                "level_1": 0.32533333333333336,
+                "level_2": 0.43466666666666665,
+                "level_3": 0.3613333333333333,
+                "level_4": 0.22666666666666668,
+                "level_5": 0.2613333333333333
+            },
+            "0.6": {
+                "total_samples": 3750,
+                "average": 0.3197333333333333,
+                "level_1": 0.3426666666666667,
+                "level_2": 0.4066666666666666,
+                "level_3": 0.356,
+                "level_4": 0.22533333333333339,
+                "level_5": 0.268
+            },
+            "0.8": {
+                "total_samples": 3750,
+                "average": 0.31120000000000003,
+                "level_1": 0.3426666666666667,
+                "level_2": 0.3773333333333333,
+                "level_3": 0.3706666666666667,
+                "level_4": 0.21999999999999997,
+                "level_5": 0.2453333333333333
+            }
+        },
+        "fundamental_attribution_error_bias": {
+            "0.2": {
+                "total_samples": 2500,
+                "average": 0.41679999999999995,
+                "level_1": 0.256,
+                "level_2": 0.22799999999999998,
+                "level_3": 0.514,
+                "level_4": 0.5,
+                "level_5": 0.5860000000000001
+            },
+            "0.4": {
+                "total_samples": 2500,
+                "average": 0.4032,
+                "level_1": 0.23399999999999999,
+                "level_2": 0.22799999999999998,
+                "level_3": 0.5,
+                "level_4": 0.496,
+                "level_5": 0.558
+            },
+            "0.6": {
+                "total_samples": 2500,
+                "average": 0.3812,
+                "level_1": 0.20199999999999996,
+                "level_2": 0.19199999999999995,
+                "level_3": 0.498,
+                "level_4": 0.46599999999999997,
+                "level_5": 0.548
+            },
+            "0.8": {
+                "total_samples": 2500,
+                "average": 0.3964,
+                "level_1": 0.22799999999999998,
+                "level_2": 0.19599999999999995,
+                "level_3": 0.514,
+                "level_4": 0.486,
+                "level_5": 0.558
+            }
+        },
+        "prospect_theory_bias": {
+            "0.2": {
+                "total_samples": 2500,
+                "average": 0.5087999999999999,
+                "level_1": 0.43600000000000005,
+                "level_2": 0.486,
+                "level_3": 0.49,
+                "level_4": 0.55,
+                "level_5": 0.5820000000000001
+            },
+            "0.4": {
+                "total_samples": 2500,
+                "average": 0.5147999999999999,
+                "level_1": 0.43999999999999995,
+                "level_2": 0.492,
+                "level_3": 0.516,
+                "level_4": 0.55,
+                "level_5": 0.5760000000000001
+            },
+            "0.6": {
+                "total_samples": 2500,
+                "average": 0.5087999999999999,
+                "level_1": 0.43000000000000005,
+                "level_2": 0.484,
+                "level_3": 0.506,
+                "level_4": 0.5660000000000001,
+                "level_5": 0.558
+            },
+            "0.8": {
+                "total_samples": 2500,
+                "average": 0.5064,
+                "level_1": 0.43400000000000005,
+                "level_2": 0.474,
+                "level_3": 0.526,
+                "level_4": 0.538,
+                "level_5": 0.56
+            }
+        },
+        "representativeness_bias": {
+            "0.2": {
+                "total_samples": 5000,
+                "average": 0.33819999999999995,
+                "level_1": 0.28900000000000003,
+                "level_2": 0.23399999999999999,
+                "level_3": 0.374,
+                "level_4": 0.40900000000000003,
+                "level_5": 0.385
+            },
+            "0.4": {
+                "total_samples": 5000,
+                "average": 0.3388,
+                "level_1": 0.273,
+                "level_2": 0.22799999999999998,
+                "level_3": 0.385,
+                "level_4": 0.41500000000000004,
+                "level_5": 0.393
+            },
+            "0.6": {
+                "total_samples": 5000,
+                "average": 0.34340000000000004,
+                "level_1": 0.27,
+                "level_2": 0.22399999999999998,
+                "level_3": 0.389,
+                "level_4": 0.43500000000000005,
+                "level_5": 0.399
+            },
+            "0.8": {
+                "total_samples": 5000,
+                "average": 0.33320000000000005,
+                "level_1": 0.28800000000000003,
+                "level_2": 0.21799999999999997,
+                "level_3": 0.377,
+                "level_4": 0.402,
+                "level_5": 0.381
+            }
+        },
+        "interpretation_bias": {
+            "0.2": {
+                "total_samples": 2500,
+                "average": 0.5536,
+                "level_1": 0.21599999999999997,
+                "level_2": 0.32599999999999996,
+                "level_3": 0.702,
+                "level_4": 0.78,
+                "level_5": 0.744
+            },
+            "0.4": {
+                "total_samples": 2500,
+                "average": 0.5668,
+                "level_1": 0.20599999999999996,
+                "level_2": 0.33599999999999997,
+                "level_3": 0.74,
+                "level_4": 0.798,
+                "level_5": 0.754
+            },
+            "0.6": {
+                "total_samples": 2500,
+                "average": 0.5552,
+                "level_1": 0.19999999999999996,
+                "level_2": 0.354,
+                "level_3": 0.688,
+                "level_4": 0.78,
+                "level_5": 0.754
+            },
+            "0.8": {
+                "total_samples": 2500,
+                "average": 0.562,
+                "level_1": 0.20399999999999996,
+                "level_2": 0.344,
+                "level_3": 0.706,
+                "level_4": 0.802,
+                "level_5": 0.754
             }
         }
     }

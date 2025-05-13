@@ -1,5 +1,6 @@
 {
     "microsoft/phi-4": {
+        "displayName": "Phi-4 (Microsoft)",
         "anchoring_bias": {
             "0.2": {
                 "total_samples": 5000,
@@ -90,6 +91,7 @@
         }
     },
     "Qwen/QwQ-32B-Preview": {
+        "displayName": "QwQ-32B-Preview (Qwen)",
         "anchoring_bias": {
             "0.2": {
                 "total_samples": 5000,
@@ -180,6 +182,7 @@
         }
     },
     "Qwen/Qwen2.5-72B-Instruct": {
+        "displayName": "Qwen2.5-72B (Qwen)",
         "anchoring_bias": {
             "0.2": {
                 "total_samples": 5000,
@@ -270,6 +273,7 @@
         }
     },
     "Qwen/Qwen2.5-32B-Instruct": {
+        "displayName": "Qwen2.5B-32B (Qwen)",
         "anchoring_bias": {
             "0.2": {
                 "total_samples": 5000,
@@ -360,6 +364,7 @@
         }
     },
     "Qwen/Qwen2.5-14B-Instruct": {
+        "displayName": "Qwen2.5-14B (Qwen)",
         "anchoring_bias": {
             "0.2": {
                 "total_samples": 5000,
@@ -450,6 +455,7 @@
         }
     },
     "deepseek-ai/DeepSeek-R1-Distill-Llama-70B": {
+        "displayName": "DeepSeek-R1-Distill-Llama-70B (DeepSeek-AI)",
         "anchoring_bias": {
             "0.2": {
                 "total_samples": 5000,
@@ -540,6 +546,7 @@
         }
     },
     "deepseek-ai/DeepSeek-R1-Distill-Qwen-32B": {
+        "displayName": "DeepSeek-R1-Distill-Qwen-32B (DeepSeek-AI)",
         "anchoring_bias": {
             "0.2": {
                 "total_samples": 5000,
@@ -630,6 +637,7 @@
         }
     },
     "deepseek-ai/DeepSeek-R1-Distill-Qwen-14B": {
+        "displayName": "DeepSeek-R1-Distill-Qwen-14B (DeepSeek-AI)",
         "anchoring_bias": {
             "0.2": {
                 "total_samples": 5000,
@@ -720,6 +728,7 @@
         }
     },
     "meta-llama/Llama-3.3-70B-Instruct": {
+        "displayName": "Llama-3.3-70B (Meta)",
         "anchoring_bias": {
             "0.2": {
                 "total_samples": 5000,
@@ -810,6 +819,7 @@
         }
     },
     "meta-llama/Llama-3.1-70B-Instruct": {
+        "displayName": "Llama-3.1-70B (Meta)",
         "anchoring_bias": {
             "0.2": {
                 "total_samples": 5000,
@@ -900,6 +910,7 @@
         }
     },
     "tiiuae/Falcon3-10B-Instruct": {
+        "displayName": "Falcon3-10B (Tiiuae)",
         "anchoring_bias": {
             "0.2": {
                 "total_samples": 5000,
@@ -990,6 +1001,7 @@
         }
     },
     "allenai/OLMo-2-1124-13B-Instruct": {
+        "displayName": "OLMo-2-1124-13B (AllenAI)",
         "anchoring_bias": {
             "0.2": {
                 "total_samples": 5000,
@@ -1080,6 +1092,7 @@
         }
     },
     "mistralai/Mistral-Small-24B-Instruct-2501": {
+        "displayName": "Mistral-Small-24B (MistralAI)",
         "anchoring_bias": {
             "0.2": {
                 "total_samples": 5000,
@@ -1170,6 +1183,7 @@
         }
     },
     "mistralai/Mistral-Nemo-Instruct-2407": {
+        "displayName": "Mistral-Nemo-Instruct-2407 (MistralAI)",
         "anchoring_bias": {
             "0.2": {
                 "total_samples": 5000,
@@ -1260,6 +1274,7 @@
         }
     },
     "google/gemma-2-27b-it": {
+        "displayName": "Gemma-2-27b-it (Google)",
         "anchoring_bias": {
             "0.2": {
                 "total_samples": 5000,
@@ -1350,6 +1365,7 @@
         }
     },
     "google/gemma-2-9b-it": {
+        "displayName": "Gemma-2-9b-it (Google)",
         "anchoring_bias": {
             "0.2": {
                 "total_samples": 5000,
@@ -1440,6 +1456,7 @@
         }
     },
     "Qwen/QwQ-32B": {
+        "displayName": "QwQ-32B (Qwen)",
         "anchoring_bias": {
             "0.2": {
                 "total_samples": 5000,
