@@ -192,7 +192,7 @@
 			As Large Language Models (LLMs) are increasingly embedded in real-world decision-making processes, it becomes crucial to examine the extent to which they exhibit cognitive biases in their responses which are systematic distortions commonly observed in human judgment. This platform presents a large-scale evaluation of eight well-established cognitive biases across a diverse set of LLMs, analyzing over 2.8 million of responses generated through controlled prompt variations.  </p> 
 
 <p class="welcome-text">Our evaluation framework is designed to measure model susceptibility to Anchoring, Availability, Confirmation, Framing, Interpretation, Overattribution, Prospect Theory, and Representativeness biases. The analysis investigates how both model size and prompt specificity play a significant role in bias expression. Each model's resistance score is computed from its performance across a curated dataset of psychologist-authored decision scenarios. Higher scores indicate stronger resistance to producing biased output.  </p>
-		  <p class="welcome-text">By clicking the triangles (<span class="hovertip">&#9658;</span>), the table reveals how bias susceptibility changes across prompts with varying levels of detail, as structured by the TELeR Taxonomy. These results provide transparent, empirical insights into model reliability and trustworthiness, highlighting how model choice and thoughtful prompt design can mitigate common reasoning pitfalls. Our ArXiv paper detailing the experiments and results is coming soon!</p>	
+		  <p class="welcome-text">By clicking the triangles (<span class="hovertip">&#9658;</span>), the table reveals how bias susceptibility changes across prompts with varying levels of detail, as structured by the <a href="https://aclanthology.org/2023.findings-emnlp.946.pdf" class="orange-link">TELeR Taxonomy</a> . These results provide transparent, empirical insights into model reliability and trustworthiness, highlighting how model choice and thoughtful prompt design can mitigate common reasoning pitfalls. Our <a href="https://arxiv.org/abs/2509.22856" class="orange-link">paper </a>details the experiments and results.</p>	
 		  <div class="row">
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
 			  Select Model Temperature for ranking*.
@@ -234,7 +234,7 @@
 			<thead>
 			  <tr>
 				<th colspan="2">
-			  <p class="ai-area">Cognitive Bias Response Generation
+			  <p class="ai-area">Cognitive Bias Resistance
 				<!-- [<a class="area_group_selector" id="ai_areas_off">off</a> | <a class="area_group_selector" id="ai_areas_on">on</a>]-->
 				<span class="toggle-buttons" data-group="all"> 
 					<button type="button" class="toggle-button area_group_selector" id="ai_areas_off" data-group="all" data-toggle="off">Off</button>
@@ -403,9 +403,9 @@
 				<p>
 					[ * GPT o4 mini was evaluated at a temperature of "1.0", which was the lowest setting available for the model]
 				</p>
-				 <div style="background-color: #f9f9f9; border: 1px solid #ccc; padding: 8px; border-radius: 6px; margin-top: 40px; font-family: sans-serif; position: relative;"> 
+				 <!-- <div style="background-color: #f9f9f9; border: 1px solid #ccc; padding: 8px; border-radius: 6px; margin-top: 40px; font-family: sans-serif; position: relative;"> 
 					<p style="margin-bottom: 8px; font-size: 1em;"> 
-					  If you use these rankings/results in your manuscript, please cite the following paper:
+					  If you use these rankings/results in your manuscript, please cite the following papers:
 					</p>
 				  
 					<button id="copy-button" type="button" onclick="copyBibtex(event)" style="position: absolute; top: 8px; right: 8px; color: black; border: none; padding: 5px 5px; font-size: 0.6em; border-radius: 4px; cursor: pointer;">
@@ -433,8 +433,71 @@
 					bibsource    = {dblp computer science bibliography, https://dblp.org}
 				  }
 				</pre>
-				 </div> 
-				  
+				<pre id="bibtex-block" style="font-size: 0.8em; background-color: #fff; border: 1px solid #e0e0e0; padding: 5px; border-radius: 4px; overflow-x: auto; white-space: pre-wrap;">
+				  @misc{knipper2025biasdetailsassessmentcognitive,
+                        title={The Bias is in the Details: An Assessment of Cognitive Bias in LLMs}, 
+                        author={R. Alexander Knipper and Charles S. Knipper and Kaiqi Zhang and Valerie Sims and Clint Bowers and Santu Karmaker},
+                        year={2025},
+                        eprint={2509.22856},
+                        archivePrefix={arXiv},
+                        primaryClass={cs.CL},
+                        url={https://arxiv.org/abs/2509.22856}, 
+                       }
+				</pre>
+				 </div>  -->
+<div style="display: flex; flex-wrap: wrap; gap: 20px; margin-top: 40px;">
+
+  <!-- First citation box -->
+  <div style="flex: 1 1 400px; background-color: #f9f9f9; border: 1px solid #ccc; padding: 8px; border-radius: 6px; font-family: sans-serif; position: relative; min-width: 300px;">
+    <p style="margin-bottom: 8px; font-size: 1em;">If you use these rankings/results in your manuscript, please cite:</p>
+    
+    <button id="copy-button-1" type="button" onclick="copyBibtex(event, 'bibtex-block-1')" style="position: absolute; top: 8px; right: 8px; color: black; border: none; padding: 5px 5px; font-size: 0.6em; border-radius: 4px; cursor: pointer;">
+      Copy
+    </button>
+
+    <pre id="bibtex-block-1" 
+     style="font-size: 0.8em; background-color: #fff; border: 1px solid #e0e0e0; 
+            padding: 5px; border-radius: 4px; overflow-x: auto; 
+            white-space: pre; text-align: left;">
+    @inproceedings{DBLP:conf/emnlp/SantuF23,
+	author = {Shubhra Kanti Karmaker Santu and Dongji Feng},
+	editor = {Houda Bouamor and Juan Pino and Kalika Bali},
+	title  = {TELeR: {A} General Taxonomy of {LLM} Prompts for Benchmarking Complex Tasks},
+    booktitle  = {Findings of the Association for Computational Linguistics: {EMNLP} 2023, Singapore, December 6-10, 2023},
+	pages  = {14197--14203},
+    publisher  = {Association for Computational Linguistics},
+	year   = {2023},
+	url    = {https://doi.org/10.18653/v1/2023.findings-emnlp.946},
+	doi    = {10.18653/V1/2023.FINDINGS-EMNLP.946},
+	timestamp  = {Sun, 06 Oct 2024 21:00:53 +0200},
+	biburl = {https://dblp.org/rec/conf/emnlp/SantuF23.bib},
+	bibsource  = {dblp computer science bibliography, https://dblp.org}
+	}
+    </pre>
+  </div>
+
+  <!-- Second citation box -->
+  <div style="flex: 1 1 400px; background-color: #f9f9f9; border: 1px solid #ccc; padding: 8px; border-radius: 6px; font-family: sans-serif; position: relative; min-width: 300px;">
+    <p style="margin-bottom: 8px; font-size: 1em;">and cite:</p>
+    
+    <button id="copy-button-2" type="button" onclick="copyBibtex(event, 'bibtex-block-2')" style="position: absolute; top: 8px; right: 8px; color: black; border: none; padding: 5px 5px; font-size: 0.6em; border-radius: 4px; cursor: pointer;">
+      Copy
+    </button>
+
+    <pre id="bibtex-block-2" style="font-size: 0.8em; background-color: #fff; border: 1px solid #e0e0e0; padding: 5px; border-radius: 4px; overflow-x: auto; white-space: pre-wrap;">
+@misc{knipper2025biasdetailsassessmentcognitive,
+      title={The Bias is in the Details: An Assessment of Cognitive Bias in LLMs}, 
+      author={R. Alexander Knipper and Charles S. Knipper and Kaiqi Zhang and Valerie Sims and Clint Bowers and Santu Karmaker},
+      year={2025},
+      eprint={2509.22856},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2509.22856}, 
+}
+    </pre>
+  </div>
+
+</div>
 			  <p>
 				<br />
 				This ranking platform is developed by the <a href="https://karmake2.github.io/" class="orange-link">Bridge-AI</a> Lab, Department of Computer Science, University of Central Florida, as part of ongoing research into fairness, bias mitigation, and trustworthiness in large language models. The evaluations aim to inform the broader AI community by highlighting model behavior under various cognitive bias scenarios. All results are based on systematically designed test sets and transparent scoring criteria.

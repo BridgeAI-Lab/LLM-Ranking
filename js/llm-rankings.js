@@ -206,10 +206,10 @@ function attachExpandCollapse() {
   });
 }
 
-function copyBibtex(event) {
-  event.preventDefault(); // extra safety
-  const text = document.getElementById('bibtex-block').innerText;
-  const button = document.getElementById('copy-button');
+function copyBibtex(event, blockId) {
+  event.preventDefault(); // safety
+  const text = document.getElementById(blockId).innerText;
+  const button = event.target;
 
   navigator.clipboard.writeText(text).then(() => {
     button.textContent = "Copied!";
