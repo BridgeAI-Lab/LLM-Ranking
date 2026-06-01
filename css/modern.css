@@ -255,5 +255,10 @@ a {
   .orange-link {
     color: #df7d15;
   }
+
+  #mapmyvisitors,
+img[src*="mapmyvisitors.com"] {
+  display: none !important;
+}
   
   
